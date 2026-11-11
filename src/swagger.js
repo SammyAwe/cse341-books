@@ -1,3 +1,4 @@
+
 import swaggerJsdoc from 'swagger-jsdoc';
 
 const options = {
@@ -10,8 +11,10 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Local development server',
+        url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000',
+        description: process.env.RENDER_EXTERNAL_URL
+          ? 'Render production server'
+          : 'Local development server',
       },
     ],
   },
